@@ -1,4 +1,6 @@
-# Arch-Linux-Installation![](https://archlinux.org/static/logos/archlinux-logo-dark-90dpi.ebdee92a15b3.png)
+<div style="text-align:center"><img src="https://archlinux.org/static/logos/archlinux-logo-dark-90dpi.ebdee92a15b3.png" /></div>  
+  
+# Arch-Linux-Installation!
 
 * This is just a documentation of my Arch Linux installation in a Windows dual booted system.
 * My machine is Asus TUF-A15 2020 varient[**AMD+Nvidia**]
