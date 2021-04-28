@@ -47,11 +47,9 @@ Here I have labelled my root partition as `arch` & EFI partition as `ESP`
 -> sudo pacman -S iptables-nft --asdeps And replace iptables with iptables-nft
 
 Below is the way to configure `zram-generator`:
-
-    Create `/etc/systemd/zram-generator.conf`:
-
-    ```
-        # /etc/systemd/zram-generator.conf
+    
+    ```ini
+       Create `/etc/systemd/zram-generator.conf` and insert the below value:
         [zram0]
     ```
 
