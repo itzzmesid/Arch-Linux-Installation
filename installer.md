@@ -30,7 +30,9 @@ Here I have labelled my root partition as `arch` & EFI partition as `ESP`
 # chroot
 -> arch-chroot /mnt
 
--> pacman -S ntfs-3g e2fsprogs dosfstools base-devel man-db man-pages texinfo systemd-swap pacman-contrib
+-> pacman -S ntfs-3g e2fsprogs dosfstools base-devel man-db man-pages texinfo pacman-contrib
+
+-> [Install the `zram-generator` AUR package](https://aur.archlinux.org/packages/zram-generator/)
 
 # Time Zone
 
@@ -57,7 +59,7 @@ Create /etc/systemd/zram-generator.conf and insert the below value:
 
 -> systemctl enable firewalld
 
--> systemctl enable systemd-swap
+-> systemctl enable 
 
 -> systemctl enable systemd-resolved
 
@@ -119,7 +121,7 @@ Create /etc/systemd/zram-generator.conf and insert the below value:
 
 -> Insert the usb which includes the `keys`     Note: Check `Keys` folder to get the keys
 
--> mount sdc1 in /mnt/keys                       Note: `sdc1` is the USB connected
+-> mount sdc1 /mnt/Keys                       Note: `sdc1` is the USB connected
 
 -> refind-install --shim /keys/shim-expt/shimx64.efi --localkeys
 
