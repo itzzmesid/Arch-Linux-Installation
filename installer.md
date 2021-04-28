@@ -1,4 +1,5 @@
 -> if using LAN, type in : ip link
+
 -> ping archlinux.org (or any web) to see internet is available. 
 
 -> timedatectl set-ntp true
@@ -27,7 +28,11 @@ Here I have labelled my root partition as `arch` & EFI partition as `ESP`
     - Example: `LABEL=data    /hdd    ext4    defaults    0 2 `
  
 -> arch-chroot /mnt
+
 -> pacman -S ntfs-3g e2fsprogs dosfstools base-devel man-db man-pages texinfo systemd-swap pacman-contrib
+
 -> ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
+
 -> sudo pacman -S --asdeps networkmanager crda bash-completion 
+
 `exit chroot and enter again`
