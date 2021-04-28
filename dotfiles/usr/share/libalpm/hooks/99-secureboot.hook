@@ -1,0 +1,13 @@
+[Trigger]
+Operation=Install
+Operation=Upgrade
+Type=Package
+Target=linux
+Target=linux-lts
+
+[Action]
+Description=Signing kernel for secure boot
+Depends=sbsigntools
+When=PostTransaction
+NeedsTargets
+Exec=/bin/sh -c 'while read -r trg; do sbsign --key /etc/refind.d/keys/refind_local.key --cert /etc/refind.d/keys/refind_local.crt --output /boot/vmlinuz-"$trg" /boot/vmlinuz-"$trg"; done'
