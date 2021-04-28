@@ -3,8 +3,9 @@
 * This is just a documentation of my Arch Linux installation in a Windows dual booted system.
 * My machine is Asus TUF-A15 2020 varient[**AMD+Nvidia**]
 * I will be using rEFInd bootloader here.
+* I will be using `KDE` as DE & `zram-generator` for swap.
 * Open the `installer.md` to view the entire installation process.
-* [You can find the official Arch Linux installation wiki here:](https://wiki.archlinux.org/index.php/installation_guide)
+* I strongly recommend you, if you are trying to install with the same documentation to kindly refer the Arch Wiki and treat this as a side reference.[You can find   the official Arch Linux installation wiki here:](https://wiki.archlinux.org/index.php/installation_guide)
 
 ## Contributing👨‍💻
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
