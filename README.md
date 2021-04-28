@@ -4,7 +4,7 @@
 * My machine is Asus TUF-A15 2020 varient[AMD+Nvidia]
 * I will be using rEFInd bootloader here.
 * Open the `installer.md` to view the entire installation process.
-* You can find the official Arch Linux installation wiki here:![](https://wiki.archlinux.org/index.php/installation_guide)
+* [You can find the official Arch Linux installation wiki here:](https://wiki.archlinux.org/index.php/installation_guide)
 
 ## Contributing👨‍💻
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
