@@ -49,11 +49,9 @@ Here I have labelled my root partition as `arch` & EFI partition as `ESP`
 Below is the way to configure `zram-generator`:
     
 ```ini
-Create `/etc/systemd/zram-generator.conf` and insert the below value:
+Create /etc/systemd/zram-generator.conf and insert the below value:
 [zram0]
 ```
-
-    
 
 -> pacman -S firewalld --asdeps
 
