@@ -6,7 +6,7 @@
 * My machine is Asus TUF-A15 2020 varient[**AMD+Nvidia**]
 * I will be using rEFInd bootloader here.
 * I will be using `KDE` as DE & `zram-generator` for swap.
-* Open the `installer.md` to view the entire installation process.
+* Open the [`installer.md`](https://github.com/itzzmesid/Arch-Linux-Installation/blob/main/installer.md) to view the entire installation process.
 * I strongly recommend you, if you are trying to install with this same documentation to kindly refer the Arch Wiki and treat this as a side reference.
 * [You can find   the official Arch Linux installation wiki here:](https://wiki.archlinux.org/index.php/installation_guide)
 
