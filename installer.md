@@ -46,15 +46,16 @@ Here I have labelled my root partition as `arch` & EFI partition as `ESP`
 
 -> sudo pacman -S iptables-nft --asdeps And replace iptables with iptables-nft
 
-Below is the way to configure `systemd-swap`. But I would recommend you to use `zram-generator`.
+Below is the way to configure `zram-generator`:
 
--> Now open `/etc/systemd/swap.conf`
+    Create `/etc/systemd/zram-generator.conf`:
 
-    - Uncomment zswap_enabled=1 and set it to 0	
-    - Uncomment zram_enabled=0 and set it to 1
-    - 
-    -
-    -
+    ```
+        # /etc/systemd/zram-generator.conf
+        [zram0]
+    ```
+
+    
 
 -> pacman -S firewalld --asdeps
 
