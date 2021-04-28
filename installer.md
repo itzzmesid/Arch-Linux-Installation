@@ -102,7 +102,7 @@ Create /etc/systemd/zram-generator.conf and insert the below value:
 
 -> Open `nano /etc/config.d/wireless-regdom` and uncomment your region.
 
-# Set up ROOT passwdord
+# Set up ROOT password
 
 -> passwd
 
