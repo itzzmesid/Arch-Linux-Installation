@@ -26,6 +26,8 @@ Here I have labelled my root partition as `arch` & EFI partition as `ESP`
 * Now open `/mnt/etc/fstab` 
     - Change the contents in between file system and last field to `defaults`
     - Example: `LABEL=data    /hdd    ext4    defaults    0 2 `
+    
+ ---
  
 -> arch-chroot /mnt
 
