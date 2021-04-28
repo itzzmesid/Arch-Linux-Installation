@@ -59,8 +59,6 @@ Create /etc/systemd/zram-generator.conf and insert the below value:
 
 -> systemctl enable firewalld
 
--> systemctl enable 
-
 -> systemctl enable systemd-resolved
 
 -> systemctl enable NetworkManager
@@ -119,11 +117,11 @@ Create /etc/systemd/zram-generator.conf and insert the below value:
 
 -> sudo pacman -S amd-ucode refind sbsigntools
 
--> Insert the usb which includes the `keys`     Note: Check `Keys` folder to get the keys
+-> Insert the usb which includes the `efi files`     Note: Check `Shim-Files` folder to get the efi files
 
--> mount sdc1 /mnt/Keys                       Note: `sdc1` is the USB connected
+-> mount sdc1 /mnt/shimfiles                       Note: `sdc1` is the USB connected
 
--> refind-install --shim /keys/shim-expt/shimx64.efi --localkeys
+-> refind-install --shim /shimfiles/shim-expt/shimx64.efi --localkeys
 
 -> Now open `/boot/refind_linux.conf`
 
@@ -161,6 +159,10 @@ Note that till now we were in `Secure Boot-OFF` mode. Now turn ON do the followi
 -> sudo pacman -S plasma dolphin konsole chromium
 
 -> systemctl enable sddm
+
+-> Reboot and log in. 
+
+Enjoy arch linux :)
 
 
 
