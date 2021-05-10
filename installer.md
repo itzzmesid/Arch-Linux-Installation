@@ -19,7 +19,7 @@ Here I have labelled my root partition as `arch` & EFI partition as `ESP`
 - Note: `n1p6 is the root partition` & `n1p1 is then default Windows 100 MB EFI partition`
 
 # Installing the essential packages
-* pacstrap /mnt base linux linux-firmware nano gvim
+* `pacstrap /mnt base linux linux-firmware nano gvim`
 
 # fstab
 * genfstab -L /mnt >> /mnt/etc/fstab  [-L ,since I have used label]
