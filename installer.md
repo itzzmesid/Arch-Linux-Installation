@@ -32,7 +32,7 @@ Here I have labelled my root partition as `arch` & EFI partition as `ESP`
 
 -> pacman -S ntfs-3g e2fsprogs dosfstools base-devel man-db man-pages texinfo pacman-contrib
 
--> [Install the `zram-generator` AUR package](https://aur.archlinux.org/packages/zram-generator/)
+-> pacman -S zram-generator
 
 # Time Zone
 
