@@ -32,4 +32,4 @@
 * Reboot
 * U will be greeted with blue screen of `rEFInd`. Just select `reset` from there.
 
-* Add the hook, do a `pacman -S linux linux-lts` and turn on secure boot after that.
+* Add the hook, do a `pacman -S linux`(and linux-lts if u have installed lts kernel too) and turn on secure boot after that.
