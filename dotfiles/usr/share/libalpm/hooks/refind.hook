@@ -1,4 +1,5 @@
 [Trigger]
+Operation=Install
 Operation=Upgrade
 Type=Package
 Target=refind
@@ -6,4 +7,4 @@ Target=refind
 [Action]
 Description = Updating rEFInd on ESP
 When=PostTransaction
-Exec=/usr/bin/refind-install --shim /home/sid/Keys/ --yes
+Exec=/bin/bash -c 'cp /efi/EFI/BOOT/BOOTX64.efi /efi/EFI/BOOT/shimx64.efi; /usr/bin/refind-install --shim /efi/EFI/BOOT/shimx64.efi --localkeys --yes; rm -r /efi/EFI/refind/{icons-backup,BOOT.CSV,*~}; rm /efi/EFI/BOOT/shimx64.efi'
