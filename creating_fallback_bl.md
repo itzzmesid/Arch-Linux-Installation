@@ -13,7 +13,7 @@
 * Do a `ls -lA /efi/EFI/BOOT/ /efi/EFI/refind/` and check it resembles this.
     ![](https://github.com/itzzmesid/Arch-Linux-Installation/blob/main/images/photo_2021-10-04_17-09-23.jpg)
     
-* Also change the `/usr/share/libalpm/hooks/refind.hook` to below
+* Also change the `/usr/share/libalpm/hooks/refind.hook` to below . Find the hook [here](https://github.com/itzzmesid/Arch-Linux-Installation/blob/main/dotfiles/usr/share/libalpm/hooks/refind.hook)
   ![](https://raw.githubusercontent.com/itzzmesid/Arch-Linux-Installation/main/images/photo_2021-10-04_17-24-40.jpg)
   
  * Now do a `sudo pacman -S refind`
