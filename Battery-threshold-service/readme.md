@@ -3,7 +3,7 @@
   * Copy this service to `/etc/systemd/system`
 
   ### Note
-    `echo 80 > /sys/class/power_supply/BAT1/charge_control_end_threshold'`
+  `echo 80 > /sys/class/power_supply/BAT1/charge_control_end_threshold'`
    Here 80 is the threshold.You can set it to anything you want. BAT1 represents the battery.
 
   * After copying, start the service by `systemctl start battery-charge-threshold.service`
