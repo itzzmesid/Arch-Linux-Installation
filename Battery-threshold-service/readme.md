@@ -11,4 +11,4 @@
   * In future incase you edit this file, don't forget to  do `systemctl daemon-reload`
 
 
-See Wiki [https://wiki.archlinux.org/title/Laptop/ASUS#Battery_charge_threshold]
+See Wiki https://wiki.archlinux.org/title/Laptop/ASUS#Battery_charge_threshold
