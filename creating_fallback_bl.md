@@ -20,7 +20,7 @@
 
 * Add [BOOTX64.CSV](https://github.com/itzzmesid/Arch-Linux-Installation/blob/main/dotfiles/BOOTX64.CSV) to `/efi/EFI/refind/` 
 
-### NOTE : Remember that refind.conf file has some changes every time refind gets update.This hook doesn't delete the `refind.conf-sample` file.Check what new changes it has with some diff app (like Kompare) and merge the changes appropriately
+  ### NOTE : Remember that refind.conf file has some changes every time refind gets update.This hook doesn't delete the `refind.conf-sample` file.Check what new      changes it has with some diff app (like Kompare) and merge the changes appropriately
 
 * Once again do `ls -lA /efi/EFI/BOOT/ /efi/EFI/refind/`
 ![](https://raw.githubusercontent.com/itzzmesid/Arch-Linux-Installation/main/images/photo_2021-10-04_17-33-38.jpg)
