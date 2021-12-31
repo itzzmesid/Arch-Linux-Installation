@@ -164,7 +164,14 @@ Note that till now we were in `Secure Boot-OFF` mode. Now turn ON do the followi
 
 Enjoy arch linux :)
 
-
+# Uninstalling Arch Linux
+1. Install mokutil tool and run the following command:`sudo mokutil --reset`. This        will unenroll the mok.Then reboot.
+2. You will be then greeted with a blue screen which asks for password to start the      unenroll process. Just complete it.
+3. Go inside the efi folder in `/`
+4. Delete all the folders except `Microsoft`
+5. Now boot to windows
+6. Delete the `ext4 partitions`
+7. Run the following command : `bcdboot C:\Windows`
 
 
 
