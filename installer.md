@@ -171,7 +171,7 @@ Enjoy arch linux :)
 4. Delete all the folders except `Microsoft`
 5. Now boot to windows
 6. Delete the `ext4 partitions`
-7. Run the following command : `bcdboot C:\Windows`
+7. Run the following command : `bcdboot C:\Windows` in cmd as admin
 
 
 
