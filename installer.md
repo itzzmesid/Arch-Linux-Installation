@@ -3,13 +3,19 @@
 ```ini
 # ping archlinux.org
 ``` 
-(or any web) to see internet is available. 
+->To check if we have internet access.
 
-```ini # timedatectl set-ntp true```
+```ini
+# timedatectl set-ntp true
+```
 
 # Disk Partitioning
-```# fdisk /dev/nvme0n1``` where nvme0n1 is an ssd drive I want to install.
 
+```ini
+# fdisk /dev/nvme0n1
+``` 
+where nvme0n1 is an ssd drive I want to install.
+--- 
 # Formatting
 ```# mkfs.ext4 -L arch /dev/nvme0n1p6
 ``` 
