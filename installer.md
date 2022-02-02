@@ -1,6 +1,9 @@
 -> Use iwctl to connect to wireless networks
 
-```# ping archlinux.org``` (or any web) to see internet is available. 
+```ini
+# ping archlinux.org
+``` 
+(or any web) to see internet is available. 
 
 ```# timedatectl set-ntp true```
 
