@@ -11,8 +11,7 @@
 ```# mkfs.ext4 -L arch /dev/nvme0n1p6
 ``` 
 p6 is the partition where I want to install the /root directory
-```# fatlabel /dev/nvme1 ESP
-``` 
+```# fatlabel /dev/nvme1 ESP``` 
 make sure NOT TO format this EFI partition since it contains Windows EFI files.
 
 Here I have labelled my root partition as `arch` & EFI partition as `ESP`
