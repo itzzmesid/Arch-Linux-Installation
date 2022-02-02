@@ -5,17 +5,22 @@
 ```# timedatectl set-ntp true```
 
 # Disk Partitioning
-```# fdisk /dev/nvme0n1```    `where nvme0n1 is my ssd drive`
+```# fdisk /dev/nvme0n1``` where nvme0n1 is an ssd drive I want to install.
 
 # Formatting
-* mkfs.ext4 -L arch /dev/nvme0n1p6
-* fatlabel /dev/nvme1 ESP
+```# mkfs.ext4 -L arch /dev/nvme0n1p6
+``` 
+p6 is the partition where I want to install the /root directory
+```# fatlabel /dev/nvme1 ESP
+``` 
+make sure NOT TO format this EFI partition since it contains Windows EFI files.
+
 Here I have labelled my root partition as `arch` & EFI partition as `ESP`
 
 # Mounting the file systems
-* mount /dev/nvme0n1p6 /mnt
-* mkdir /mnt/efi
-* mount /dev/nvme0n1p1 /mnt/efi
+```# mount /dev/nvme0n1p6 /mnt```
+```# mkdir /mnt/efi```
+```# mount /dev/nvme0n1p1 /mnt/efi```
 - Note: `n1p6 is the root partition` & `n1p1 is then default Windows 100 MB EFI partition`
 
 # Installing the essential packages
