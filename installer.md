@@ -1,11 +1,11 @@
--> if using LAN, type in : ip link
+-> Use iwctl to connect to wireless networks
 
--> ping archlinux.org (or any web) to see internet is available. 
+```# ping archlinux.org``` (or any web) to see internet is available. 
 
--> timedatectl set-ntp true
+```# timedatectl set-ntp true```
 
 # Disk Partitioning
-* fdisk /dev/nvme0n1    `where nvme0n1 is my ssd drive`
+```# fdisk /dev/nvme0n1```    `where nvme0n1 is my ssd drive`
 
 # Formatting
 * mkfs.ext4 -L arch /dev/nvme0n1p6
