@@ -157,7 +157,9 @@ and set the password for user `sid`
 # sudo pacman -S amd-ucode refind sbsigntools
 ```
 
--> Insert the usb which includes the `efi files`     Note: Check [`Shim-Files` folder o get the efi files](https://github.com/itzzmesid/Arch-Linux-Installation/tree/main/ShimFiles)
+-> Insert the usb which includes the `efi files`     
+<!-- Note: Check [`Shim-Files` folder to get the efi files](https://github.com/itzzmesid/Arch-LinuxInstallation/tree/main/ShimFiles) -->
+Check #Shim-Files for shim files
 
 ```ini
 # mount sdc1 /mnt/shimfiles
@@ -212,18 +214,20 @@ Note that till now we were in `Secure Boot-OFF` mode. Now turn ON do the followi
 
 -> Reboot and Log In. 
 
-Enjoy arch linux :)
+Enjoy arch linux =)
 
 ---
 
 # Uninstalling Arch Linux
-1. Install mokutil tool and run the following command:`sudo mokutil --reset`. This        will unenroll the mok.Then reboot.
-2. You will be then greeted with a blue screen which asks for password to start the      unenroll process. Just complete it.
+1. Install mokutil tool and run the following command:`sudo mokutil --reset`. This will unenroll the mok.Then reboot.
+2. You will be then greeted with a blue screen which asks for password to start the  unenroll process. Just complete it.
 3. Go inside the efi folder in `/`
 4. Delete all the folders except `Microsoft`
 5. Now boot to windows
 6. Delete the `ext4 partitions`
 7. Run the following command : `bcdboot C:\Windows` in cmd as admin
+
+---
 
 ALSO CHECK HOW TO ENABLE FALLBACK BOOTLOADER [here](https://github.com/itzzmesid/Arch-Linux-Installation/blob/main/creating_fallback_bl.md)
 
