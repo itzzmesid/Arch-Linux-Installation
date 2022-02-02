@@ -113,7 +113,7 @@ Create /etc/systemd/zram-generator.conf and insert the below value:
 
 -> Open `/etc/locale.gen` and uncomment your choices. People from India can uncomment the same thing as I have shown below:
 
-    - uncomment `en_US.UTF-8 UTF-8`,`en_GB.UTF-8 UTF-8`, `en_IN UTF-8`
+    - uncomment en_US.UTF-8 UTF-8, en_GB.UTF-8 UTF-8 & en_IN UTF-8
  
 -> Generate locales by running `locale-gen`
 
