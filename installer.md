@@ -101,7 +101,7 @@ Create /etc/systemd/zram-generator.conf and insert the below value:
 # systemctl enable paccache.timer
 ```
 
-`Outside chroot, type in **sudo ln -sf /var/run/systemd/resolve/stub-resolv.conf /mnt/etc/resolv.conf**`
+`Outside chroot, type in sudo ln -sf /var/run/systemd/resolve/stub-resolv.conf /mnt/etc/resolv.conf`
 
 -> Come back to `chroot`
 
@@ -158,8 +158,8 @@ and set the password for user `sid`
 ```
 
 -> Insert the usb which includes the `efi files`     
-<!-- Note: Check [`Shim-Files` folder to get the efi files](https://github.com/itzzmesid/Arch-LinuxInstallation/tree/main/ShimFiles) -->
-Check #Shim-Files for shim files
+Check [`Shim-Files` folder to get the efi files](https://github.com/itzzmesid/Arch-LinuxInstallation/tree/main/ShimFiles)
+
 
 ```ini
 # mount sdc1 /mnt/shimfiles
@@ -167,7 +167,7 @@ Check #Shim-Files for shim files
 NOTE: `sdc1` is the USB connected and `shimfiles` is the folder which holds the files. Choosing where and how to store is your choice.
 
 ```ini
-refind-install --shim /shimfiles/shimx64.efi --localkeys
+# refind-install --shim /shimfiles/shimx64.efi --localkeys
 ```
 
 -> Open `/boot/refind_linux.conf` & add in the following
