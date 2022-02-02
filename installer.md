@@ -14,81 +14,100 @@
 ```ini
 # fdisk /dev/nvme0n1
 ``` 
-where nvme0n1 is an ssd drive I want to install.
---- 
-# Formatting
-```# mkfs.ext4 -L arch /dev/nvme0n1p6
-``` 
-p6 is the partition where I want to install the /root directory
-```# fatlabel /dev/nvme1 ESP``` 
-make sure NOT TO format this EFI partition since it contains Windows EFI files.
+->where nvme0n1 is an ssd drive I want to install.
 
-Here I have labelled my root partition as `arch` & EFI partition as `ESP`
+# Formatting
+```ini
+# mkfs.ext4 -L arch /dev/nvme0n1p6
+``` 
+->p6 is the partition where I want to install the /root directory
+```ini 
+# fatlabel /dev/nvme1 ESP
+``` 
+->make sure NOT TO format this EFI partition since it contains Windows EFI files.
+
+->Here I have labelled my root partition as `arch` & EFI partition as `ESP`
 
 # Mounting the file systems
-```# mount /dev/nvme0n1p6 /mnt```
-```# mkdir /mnt/efi```
-```# mount /dev/nvme0n1p1 /mnt/efi```
-- Note: `n1p6 is the root partition` & `n1p1 is then default Windows 100 MB EFI partition`
+```ini
+# mount /dev/nvme0n1p6 /mnt
+# mkdir /mnt/efi
+# mount /dev/nvme0n1p1 /mnt/efi
+```
+->Note: `n1p6 is the root partition` & `n1p1 is then default Windows 100 MB EFI partition`
 
 # Installing the essential packages
-* `pacstrap /mnt base linux linux-firmware nano gvim`
+```ini
+# pacstrap /mnt base linux linux-firmware nano gvim
+```
 
 # fstab
-* genfstab -L /mnt >> /mnt/etc/fstab  [-L ,since I have used label]
-* Now open `/mnt/etc/fstab` 
-    - Change the contents in between file system and last field to `defaults`
-    - Example: `LABEL=data    /hdd    ext4    defaults    0 2 `
+```ini
+# genfstab -L /mnt >> /mnt/etc/fstab
+```
+[-L ,since I have used label]
+-> OPTIONAL: Now open `/mnt/etc/fstab` 
+                - Change the contents in between file system and last field to `defaults`
+                - Example: `LABEL=data    /hdd    ext4    defaults    0 2 `
     
-# chroot
--> arch-chroot /mnt
+# chroot into the new /
+```ini
+# arch-chroot /mnt
+```
 
--> pacman -S ntfs-3g e2fsprogs dosfstools base-devel man-db man-pages texinfo pacman-contrib
+```ini
+# pacman -S ntfs-3g e2fsprogs dosfstools base-devel man-db man-pages texinfo pacman-contrib
+```
+-> These are essential packages for file systems
+```ini
+# pacman -S zram-generator
+```
 
--> pacman -S zram-generator
+# Setting the time zone
+```ini
+# ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
+```
 
-# Time Zone
-
--> ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
-
--> hwclock --systohc
+```ini
+# hwclock --systohc
+```
 
 # Installing other necessary packages & configuring stuffs
 
--> sudo pacman -S --asdeps networkmanager crda bash-completion 
+```ini
+# sudo pacman -S --asdeps networkmanager crda bash-completion firewalld
+```
 
-`exit chroot and enter again`
+-> Exit `chroot` and again `arch-chroot`
 
--> sudo pacman -S iptables-nft --asdeps And replace iptables with iptables-nft
+```ini
+# sudo pacman -S iptables-nft --asdeps And replace iptables with iptables-nft
+```
 
-Below is the way to configure `zram-generator`:
+### Below is the way to configure `zram-generator`:
     
 ```ini
 Create /etc/systemd/zram-generator.conf and insert the below value:
 [zram0]
 ```
 
--> pacman -S firewalld --asdeps
+# Enabling the services
 
--> systemctl enable firewalld
+```ini
+# systemctl enable firewalld
+# systemctl enable systemd-resolved
+# systemctl enable NetworkManager
+# systemctl enable fstrim.timer
+# systemctl enable paccache.timer
+```
 
--> systemctl enable systemd-resolved
-
--> systemctl enable NetworkManager
-
--> systemctl enable fstrim.timer
-
--> systemctl enable paccache.timer
-
--> `Outside chroot, type in **sudo ln -sf /var/run/systemd/resolve/stub-resolv.conf /mnt/etc/resolv.conf**`
+`Outside chroot, type in **sudo ln -sf /var/run/systemd/resolve/stub-resolv.conf /mnt/etc/resolv.conf**`
 
 -> Come back to `chroot`
 
--> Open /etc/mkinitcpio.conf
-
--> Replace `udev` with `systemd` in the `hooks array`.
-
--> Then do pacman -S linux linux-lts
+-> OPTIONAL : Open `/etc/mkinitcpio.conf`
+                - Replace `udev` with `systemd` in the `hooks array`
+                = Then do pacman -S linux linux-lts
 
 # Localization
 
@@ -111,37 +130,51 @@ Create /etc/systemd/zram-generator.conf and insert the below value:
     - Type in your hostname
     - Save and close it
 
--> Since both `systemd-resolved` & `nss-myhostname` can automatically do the **localhost name resolution**, there is no need to create `/etc/hosts` as mentioned in Wiki.
+-> Since both `systemd-resolved` & `nss-myhostname` can automatically do the localhost name resolution, there is no need to create a separate `/etc/hosts` file
 
--> Open `nano /etc/config.d/wireless-regdom` and uncomment your region.
+-> Open `nano /etc/conf.d/wireless-regdom` and uncomment your region.
 
 # Set up ROOT password
 
--> passwd
-
+```ini
+# passwd
+```
 # Setting up a new user named `sid`
-
--> useradd -m -G wheel sid
-
-    - passwd sid and set the password for user `sid`
-    - EDITOR=nano visudo (Uncomment wheel group)
+```ini
+# useradd -m -G wheel sid
+```
+```ini
+# passwd sid 
+```
+and set the password for user `sid`
+```ini
+# EDITOR=nano visudo (Uncomment wheel group)
+```
 
 # Installing a boot loader (rEFInd)
 
--> sudo pacman -S amd-ucode refind sbsigntools
+```ini
+# sudo pacman -S amd-ucode refind sbsigntools
+```
 
--> Insert the usb which includes the `efi files`     Note: Check `Shim-Files` folder to get the efi files
+-> Insert the usb which includes the `efi files`     Note: Check [`Shim-Files` folder o get the efi files](https://github.com/itzzmesid/Arch-Linux-Installation/tree/main/ShimFiles)
 
--> mount sdc1 /mnt/shimfiles                       Note: `sdc1` is the USB connected
+```ini
+# mount sdc1 /mnt/shimfiles
+```
+NOTE: `sdc1` is the USB connected and `shimfiles` is the folder which holds the files. Choosing where and how to store is your choice.
 
--> refind-install --shim /shimfiles/shim-expt/shimx64.efi --localkeys
+```ini
+refind-install --shim /shimfiles/shimx64.efi --localkeys
+```
 
--> Now open `/boot/refind_linux.conf`
+-> Open `/boot/refind_linux.conf` & add in the following
 
     - "Boot with standard options"    "root=LABEL=arch quiet initrd=/boot/amd-ucode.img initrd=/boot/initramfs-%v.img"
     - "Boot with fallback initramfs"    "root=LABEL=arch quiet initrd=/boot/amd-ucode.img initrd=/boot/initramfs-%v-fallback.img"
     - "Boot to terminal"    "root=LABEL=arch systemd.unit=multi-user.target quiet initrd=/boot/amd-ucode.img initrd=/boot/initramfs-%v.img"
     - Save & exit.
+
 -> Open `/efi/EFI/refind/refind.conf`
 
     - Line 229 - uncomment and set use_graphics_for osx,linux,windows
@@ -150,7 +183,9 @@ Create /etc/systemd/zram-generator.conf and insert the below value:
 
 -> Exit CHROOT
 
--> umount -R /mnt
+```ini
+# umount -R /mnt
+```
 
 -> Reboot
 
@@ -167,15 +202,19 @@ Note that till now we were in `Secure Boot-OFF` mode. Now turn ON do the followi
 
 # Installing the necessary drivers
 
--> sudo pacman -S nvidia nvidia-lts nvidia-prime opencl-nvidia mesa xf86-video-amdgpu vulkan-radeon libva-mesa-driver mesa-vdpau opencl-mesa ocl-icd opencl-nvidia
+```ini
+# sudo pacman -S nvidia nvidia-lts nvidia-prime opencl-nvidia mesa xf86-video-amdgpu vulkan-radeon libva-mesa-driver mesa-vdpau opencl-mesa ocl-icd opencl-nvidia
 
--> sudo pacman -S plasma dolphin konsole chromium
+# sudo pacman -S plasma dolphin konsole chromium
 
--> systemctl enable sddm
+# systemctl enable sddm
+```
 
--> Reboot and log in. 
+-> Reboot and Log In. 
 
 Enjoy arch linux :)
+
+---
 
 # Uninstalling Arch Linux
 1. Install mokutil tool and run the following command:`sudo mokutil --reset`. This        will unenroll the mok.Then reboot.
@@ -186,7 +225,7 @@ Enjoy arch linux :)
 6. Delete the `ext4 partitions`
 7. Run the following command : `bcdboot C:\Windows` in cmd as admin
 
-
+ALSO CHECK HOW TO ENABLE FALLBACK BOOTLOADER [here](https://github.com/itzzmesid/Arch-Linux-Installation/blob/main/creating_fallback_bl.md)
 
 
 
