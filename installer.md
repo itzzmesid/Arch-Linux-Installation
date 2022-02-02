@@ -5,7 +5,7 @@
 ``` 
 (or any web) to see internet is available. 
 
-```# timedatectl set-ntp true```
+```ini # timedatectl set-ntp true```
 
 # Disk Partitioning
 ```# fdisk /dev/nvme0n1``` where nvme0n1 is an ssd drive I want to install.
