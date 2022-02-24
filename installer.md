@@ -158,7 +158,7 @@ and set the password for user `sid`
 ```
 
 -> Insert the usb which includes the `efi files`     
-Check [`Shim-Files` folder to get the efi files](https://github.com/itzzmesid/Arch-LinuxInstallation/tree/main/ShimFiles)
+Check [Shim-Files folder to get the efi files](https://github.com/itzzmesid/Arch-LinuxInstallation/ShimFiles)
 
 
 ```ini
@@ -202,7 +202,7 @@ Note that till now we were in `Secure Boot-OFF` mode. Now turn ON do the followi
 
 -> Login
 
-# Installing the necessary drivers
+# Installing the necessary graphic drivers and a DE
 
 ```ini
 # sudo pacman -S nvidia nvidia-lts nvidia-prime opencl-nvidia mesa xf86-video-amdgpu vulkan-radeon libva-mesa-driver mesa-vdpau opencl-mesa ocl-icd opencl-nvidia
